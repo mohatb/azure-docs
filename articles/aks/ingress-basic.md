@@ -292,14 +292,14 @@ helm install nginx-ingress ingress-nginx/ingress-nginx `
 Check the load balancer service by using `kubectl get services`.
 
 ```console
-kubectl get services --namespace ingress-basic -o wide -w nginx-ingress-ingress-nginx-controller
+kubectl get services --namespace ingress-basic -o wide -w ingress-nginx-controller
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, an IP address is assigned under *EXTERNAL-IP*, as shown in the following example output:
 
 ```
 NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
+ingress-nginx-controller                 LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
 No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the external IP address. Ingress rules are configured in the following steps.
